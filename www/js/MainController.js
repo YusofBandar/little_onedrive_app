@@ -2,10 +2,10 @@
 app.controller('MainController', control);
 
 // Inject services that you need (in this case we don't need any :D )
-control.$inject = ['odauthService', '$window'];
+control.$inject = ['$scope','odauthService', '$window'];
 
 // Pass any injected services to the controller constructor function
-function control(odauthService, $window) {
+function control($scope,odauthService, $window) {
   var vm = angular.extend(this, {
     file_header: '',
     file_contents: '',
@@ -18,7 +18,7 @@ function control(odauthService, $window) {
     //OneDrive Application information, retrieved from Microsoft Graph API
     var appInfo = {
       "clientId": 'dabc0641-14b9-4c5f-8956-73693bbc3821',
-      "redirectUri": "https://127.0.0.1:8080/callback.html",
+      "redirectUri": "http://localhost:8100/callback.html",
       "scopes": "sites.read.all",
       "authServiceUri": "https://login.microsoftonline.com/common/oauth2/v2.0/authorize"
     }
@@ -31,7 +31,7 @@ function control(odauthService, $window) {
 
   // Downloads specific file from a OneDrive account
   // file_path : absolute path to file, example : test/test/test.txt 
-  vm.oneDrive_download = function (file_path) {
+  vm.oneDrive_download = function () {
     console.log(vm.file_path);
     if (!is_authenticated()) {
       alert("login into onedrive")
@@ -39,10 +39,12 @@ function control(odauthService, $window) {
     }
 
     // Download file providing OneDrive auth token and file path
-    download_folder(localStorage.getItem("oneDriveToken"), file_path).then(function (result) {
+    download_folder(localStorage.getItem("oneDriveToken"), vm.file_path).then(function (result) {
       // show contents of file
-      vm.file_header = "File Path: " + file_path;
+      vm.file_header = "File Path: " + vm.file_path;
       vm.file_contents = "File Contents  : " + result[1];
+
+      $scope.$apply();
 
     }).catch(function (error) {
       // Un-authorized

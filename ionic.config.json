@@ -1,6 +1,8 @@
 {
   "name": "little_onedrive_app",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "ionic1",
   "watchPatterns": [
     "scss/**/*",
