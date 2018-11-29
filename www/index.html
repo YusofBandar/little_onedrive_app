@@ -46,12 +46,12 @@
             <div>
                 <h2>Step 2) Download a File</h2>
                 <p> Specify the path to a file, example <i>test/test/test.txt</i></p>
-                <form action="javascript:oneDrive_download(file_path.value)">
+               
                     <label class="item item-input">
-                    <input autocomplete="off" type="text" placeholder="path">
+                    <input ng-model="vm.file_path" autocomplete="off" type="text" placeholder="path">
                   </label>
-                    <button class="button">Download Item</button>
-                </form>
+                    <button ng-click="vm.oneDrive_download()" class="button">Download Item</button>
+                
                 
             </div>
             <div id="step3">

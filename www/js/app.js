@@ -55,7 +55,8 @@
   function control(odauthService, $window) {
     var vm = angular.extend(this, {
       file_header: '',
-      file_contents: ''
+      file_contents: '',
+      file_path : ''
     });
 
     vm.oneDrive_login = function () {
@@ -78,6 +79,7 @@
     // Downloads specific file from a OneDrive account
     // file_path : absolute path to file, example : test/test/test.txt 
     vm.oneDrive_download = function (file_path) {
+      console.log(vm.file_path);
       if (!is_authenticated()) {
         alert("login into onedrive")
         return;
@@ -89,6 +91,10 @@
         document.getElementById("step3").style.visibility = "visible";
         document.getElementById("file_header").innerHTML = "File Path : " + file_path;
         document.getElementById("file_contents").innerHTML = "File Contents : " + result[1];
+
+        vm.file_header = "File Path: " + file_path;
+        vm.file_contents = "File Contents  : " + result[1];
+
       }).catch(function (error) {
         // Un-authorized
         if (error[0] == 401) {
