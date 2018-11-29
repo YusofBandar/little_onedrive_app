@@ -42,12 +42,12 @@
       <h1 class="title">Ionic OneDrive API Connect</h1>
     </ion-header-bar>
     <ion-content>
-      <div>
+      <div class="card">
         <h2>Step 1) Login into OneDrive</H2>
         <button class="button" ng-click="vm.oneDrive_login()">OneDrive Login</button>
       </div>
 
-      <div>
+      <div class="card">
         <h2>Step 2) Download a File</h2>
         <p> Specify the path to a file, example <i>test/test/test.txt</i></p>
 
@@ -58,7 +58,7 @@
 
 
       </div>
-      <div id="step3">
+      <div class="card">
         <h2>Step 3) Tada your file</h2>
         <h4 id="file_header">{{vm.file_header}}</h4>
         <p id="file_contents">{{vm.file_contents}}</p>
