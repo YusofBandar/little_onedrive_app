@@ -88,10 +88,6 @@
       // Download file providing OneDrive auth token and file path
       download_folder(localStorage.getItem("oneDriveToken"), file_path).then(function (result) {
         // show contents of file
-        document.getElementById("step3").style.visibility = "visible";
-        document.getElementById("file_header").innerHTML = "File Path : " + file_path;
-        document.getElementById("file_contents").innerHTML = "File Contents : " + result[1];
-
         vm.file_header = "File Path: " + file_path;
         vm.file_contents = "File Contents  : " + result[1];
 
