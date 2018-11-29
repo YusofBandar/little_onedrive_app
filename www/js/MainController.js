@@ -1,5 +1,5 @@
-var app = angular.module('starter', ['ionic']).controller('MainController',function($scope){
+var app = angular.module('starter', ['ionic']).controller('MainController',['$scope',function($scope){
 
-})
+}]);
 
 
