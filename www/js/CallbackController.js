@@ -6,5 +6,7 @@ app.controller('CallbackController', callbackcontrol);
 
   function callbackcontrol(odauthService) {
     var vm = angular.extend(this, {})
+
+    //automatically call onAuthCallback
     odauthService.onAuthCallback();
   }
