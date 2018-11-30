@@ -45,7 +45,7 @@ function odauthControl($window) {
     // for added security we require https
     function ensureHttps() {
         if (window.location.protocol != "https:") {
-            window.location.href = "https:" + window.location.href.substring(ßåwindow.location.protocol.length);
+            window.location.href = "https:" + window.location.href.substring(window.location.protocol.length);
         }
     }
 
