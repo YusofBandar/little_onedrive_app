@@ -43,25 +43,25 @@
     </ion-header-bar>
     <ion-content>
       <div class="card">
-        <h2>Step 1) Login into OneDrive</H2>
-        <button class="button" ng-click="vm.oneDrive_login()">OneDrive Login</button>
+        <h3>Step 1) Login into OneDrive</h3>
+        <button id="padded" class="button" ng-click="vm.oneDrive_login()">OneDrive Login</button>
       </div>
 
       <div class="card">
-        <h2>Step 2) Download a File</h2>
+        <h3>Step 2) Download a File</h3>
         <p> Specify the path to a file, example <i>test/test/test.txt</i></p>
 
-        <label class="item item-input">
-          <input ng-model="vm.file_path" autocomplete="off" type="text" placeholder="path">
+        <label id="padded" class="item item-input">
+          <input ng-model="vm.file_path" autocomplete="off" type="text" placeholder="file path">
         </label>
-        <button ng-click="vm.oneDrive_download()" class="button">Download Item</button>
+        <button id="padded" ng-click="vm.oneDrive_download()" class="button">Download Item</button>
 
 
       </div>
       <div class="card">
-        <h2>Step 3) Tada your file</h2>
-        <h4 id="file_header">{{vm.file_header}}</h4>
-        <p id="file_contents">{{vm.file_contents}}</p>
+        <h3>Step 3) Tada your file</h3>
+        <h4 id="padding" id="file_header">{{vm.file_header}}</h4>
+        <p id="padding" id="file_contents">{{vm.file_contents}}</p>
       </div>
     </ion-content>
   </ion-pane>

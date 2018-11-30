@@ -26,7 +26,7 @@ function control($scope,odauthService, $window) {
     //provide the app info
     odauthService.provideAppInfo(appInfo);
     challengeForAuth();
-
+   
   }
 
   // Downloads specific file from a OneDrive account

@@ -148,7 +148,7 @@ function odauthControl($window) {
             "toolbar=no",
             "menubar=no",
             "scrollbars=yes"];
-        var popup = window.open(url, "oauth", features.join(","));
+        var popup = window.cordova.InAppBrowser.open(url, "oauth", features.join(","));
         
 
         if (!popup) {
@@ -157,20 +157,10 @@ function odauthControl($window) {
 
         popup.focus();
 
-        popup.addEventListener('loadstart', function (event) {
-            console.log('hello');
-        });
-
-        popup.addEventListener('loadstop', function (event) {
-            console.log('hello');
-        });
-
-        popup.addEventListener('loaderror', function (event) {
-            console.log('hello');
-        });
-
-        popup.addEventListener('exit', function (event) {
-            console.log('hello');
+        popup.addEventListener('loadstart', function(event) {
+            if((event.url).startsWith("http://localhost/callback")) {
+               vm.onAuthCallback();
+            }
         });
     }
 
